@@ -1,3 +1,5 @@
+import { todo } from 'node:test'
+
 const { expect } = require('@playwright/test')
 
 
@@ -18,11 +20,6 @@ export class LoginPage {
         await this.page.getByPlaceholder('E-mail').fill(email)
         await this.page.getByPlaceholder('Senha').fill(password)
         await this.page.getByText('Entrar').click()
-    }
-
-    async isLoggedIn() {
-        await this.page.waitForLoadState('networkidle')
-        await expect(this.page).toHaveURL(/.*admin/)
     }
 
     async alertHaveText(text) {
